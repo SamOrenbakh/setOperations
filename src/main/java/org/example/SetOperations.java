@@ -19,7 +19,6 @@ public class SetOperations {
             if (setOne.contains(element)){
                 intersection.add(element);
             }
-            
         }
         return intersection;
     }

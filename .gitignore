@@ -8,6 +8,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+*.idea
 *.iws
 *.iml
 *.ipr
@@ -33,6 +34,10 @@ build/
 
 ### VS Code ###
 .vscode/
+*.class
 
 ### Mac OS ###
 .DS_Store
+.idea/misc.xml
+.idea/encodings.xml
+.idea/vcs.xml
