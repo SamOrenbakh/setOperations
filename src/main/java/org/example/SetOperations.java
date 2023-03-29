@@ -2,9 +2,9 @@ package org.example;
 import java.io.*;
 import java.util.*;
 
-public class SetOperations {
-    HashSet setOne = new HashSet();
-    HashSet setTwo = new HashSet();
+public class SetOperations<T> {
+    HashSet<T> setOne = new HashSet<T>();
+    HashSet<T> setTwo = new HashSet<T>();
 
     public HashSet union(HashSet setOne, HashSet setTwo) {
         HashSet union = new HashSet();
@@ -13,7 +13,7 @@ public class SetOperations {
         return union;
     }
 
-    public HashSet intersection(HashSet setOne, HashSet setTwo){
+    public HashSet<T> intersection(HashSet setOne, HashSet setTwo){
         HashSet intersection = new HashSet();
         for (Object element: setTwo) {
             if (setOne.contains(element)){
@@ -33,7 +33,18 @@ public class SetOperations {
         return difference;
     }
     //comment for git
-    //for cartisian product maybe use a map store the value of the chars as a key and the combination as a value
+
+    public ArrayList cartisianProductOfTwoSets(HashSet setOne, HashSet setTwo){
+        ArrayList cartisianProduct = new ArrayList();
+
+        for (Object setOneElement: setOne) {
+            for (Object setTwoElement: setTwo) {
+                cartisianProduct.add(setOneElement.toString() + "," + setTwoElement.toString());
+            }
+        }
+
+        return cartisianProduct;
+    }
 
 
 }
