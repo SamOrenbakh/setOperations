@@ -8,8 +8,13 @@ public class SetOperations<T> {
 
     public HashSet union(HashSet setOne, HashSet setTwo) {
         HashSet union = new HashSet();
-        union.addAll(setOne);
-        union.addAll(setTwo);
+        for (Object setOneElement :setOne) {
+            union.add(setOneElement);
+        }
+
+        for (Object setTwoElement :setTwo) {
+            union.add(setTwoElement);
+        }
         return union;
     }
 
@@ -32,19 +37,61 @@ public class SetOperations<T> {
         }
         return difference;
     }
-    //comment for git
 
     public ArrayList cartisianProductOfTwoSets(HashSet setOne, HashSet setTwo){
-        ArrayList cartisianProduct = new ArrayList();
+        ArrayList setOneAL = new ArrayList<>(setOne);
+        ArrayList setTwoAL = new ArrayList<>(setTwo);
+        ArrayList product = new ArrayList<>();
 
-        for (Object setOneElement: setOne) {
-            for (Object setTwoElement: setTwo) {
-                cartisianProduct.add(setOneElement.toString() + "," + setTwoElement.toString());
+        if (setOne.isEmpty() || setTwo.isEmpty()){
+            System.out.println("{[]}");
+            return (ArrayList) List.of();
+        }
+
+        for (int i = 0; i < setOneAL.size(); i++) {
+            for (int j = 0; j < setTwoAL.size(); j++) {
+                product.add(setOneAL.get(i).toString() +"," + setTwoAL.get(j).toString());
             }
         }
 
-        return cartisianProduct;
+        int cardinality = setOne.size() * setTwo.size();
+
+        System.out.println("The Cardinality of the set is " + cardinality + ":");
+        System.out.print("{");
+        for (Object number: product) {
+            System.out.print("[" + number + "]");
+        }
+        System.out.print("}");
+
+
+
+        return product;
     }
+
+//    public ArrayList powerSet(HashSet set){
+//        ArrayList setToArraylist = new ArrayList(set);
+//        ArrayList powerSet = new ArrayList();
+//        HashMap tracking = new HashMap();
+//        if (set.iterator().next() instanceof String){
+//            for (int i = 0; i < setToArraylist.size(); i++) {
+//
+//            }
+//        }
+//
+//        //might be good for use of recursions since u want to pull first element in list do all combinations then move on
+//        if (set.iterator().next() instanceof Integer){
+//            for (int i = 0; i < setToArraylist.size(); i++) {
+//
+//
+//            }
+//        }
+
+
+    //}
+
+//    public ArrayList recursion(ArrayList a, int count){
+//
+//    }
 
 
 }

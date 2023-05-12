@@ -16,7 +16,7 @@ public class AppTest {
         Random random = new Random();
 
         while (randomNumbersSet.size() < size){
-            int randomNumber = random.nextInt(10000) + 1;
+            int randomNumber = random.nextInt(25) + 1;
             randomNumbersSet.add(randomNumber);
         }
 
@@ -64,6 +64,15 @@ public class AppTest {
             System.out.print("[" + number + "]");
         }
         System.out.print("}");
+    }
+
+    @Test
+    public void cartisianProduct(){
+        HashSet setOne = generateRandomSet(3);
+        HashSet setTwo = generateRandomSet(3);
+
+        ArrayList catisianProduct = operations.cartisianProductOfTwoSets(setOne, setTwo);
+
 
     }
 
